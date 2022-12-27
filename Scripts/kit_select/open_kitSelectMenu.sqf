@@ -48,11 +48,9 @@ _unitCreated disableAI "AUTOCOMBAT";
 _unitCreated disableAI "FSM";
 _unitCreated disableAI "RADIOPROTOCOL";
 _unitCreated allowDamage false;
-_unitCreated hideObject false;
 _unitCreated setUnitLoadout (getUnitLoadout (player getVariable "BAR_kit"));
 _unitCreated setDir 180;
 _unitCreated switchMove selectRandom _animArray;
-
 //cam stuff 
 private _camera = "camera" camCreate (position _unitCreated);
 _camera camPrepareTarget _unitCreated;
@@ -69,11 +67,13 @@ if(!dialog) exitwith {
 	deleteVehicle _unitCreated;
 };
 
+_unitCreated hideObject false;
 _index = lbCurSel 240411;
 _kit_unit = available_kits select _index;
 _actualKitUnit = _kit_unit;
 
 while {dialog} do {
+	_unitCreated hideObject false;
 	_index = lbCurSel 240411;
 	_kit_unit = available_kits select _index;	
 	//demo unit
@@ -98,7 +98,6 @@ while {dialog} do {
 	ctrlSetText [240412,_picture_sec];
 	ctrlSetText [240414,_picture_hg];
 	ctrlSetText [240415,_picture_uni];
-
 	sleep 0.1;
 };
 
