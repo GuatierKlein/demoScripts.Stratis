@@ -1,0 +1,41 @@
+Pour utiliser les scripts, copiez tout le dossier dans la racine de votre mission (là ou se trouve le mission.sqm)
+
+*** AddPilot ***
+pour utiliser addPilot, mettre dans l'init du véhicule : 
+[this] execVM "scripts\addPilot\addPilotAction.sqf"
+paramètres dans "scripts\addPilot\addPilot.sqf"
+
+*** kitSelect *** 
+pour utiliser kitSelect, mettre dans l'init de l'objet souhaité : 
+[this] execVM "scripts\kit_select\kitSelectAction.sqf"
+paramètres dans "scripts\kit_select\open_kitSelectMenu.sqf"
+pour activer les addactions pour sauvegarder votre equipement, mettre dans l'init de l'objet 
+[this] execVM "scripts\kit_select\customKitAction.sqf"
+pour modifier l'affectation automatique au respawn (désactivée par défaut), modifiez BAR_enableCustomKitOnRespawn dans scripts\kit_select\core.sqf
+
+*** tp *** 
+pour utiliser tp, mettre dans l'init de l'objet souhaité : 
+[this] execVM "scripts\tp\tp_action.sqf"
+pas de paramètres
+
+*** trackers ***
+Documentation disponible dans "scripts\tracker.sqf"
+Activez les script en décommentant "#include "scripts\tracker.sqf";" dans init.sqf
+
+*** music ***
+Documentation disponible dans "scripts\music.sqf" 
+
+*** arty ***
+Remplissez la tableau artillery_pieces_array avec vos canons dans "scripts\arty\send_arty.sqf"
+ex : [canon1,canon2]
+pour utiliser addPilot en action molette sur un objet, mettre dans l'init d'un objet : 
+[this] execVM "scripts\arty\arty_action.sqf"
+Ou, si vous voulez avoir l'action pour un joueur portant un certain matos, allez dans onPlayerRespawn.sqf et décommentez l'addAction "arty menu"
+(pour décommenter, enlevez les // au debut des lignes)
+Vous pouvez changer l'objet à avoir à cette ligne :
+"backpack player == 'UK3CB_B_I_Radio_Backpack'", 	// condition
+remplacez UK3CB_B_I_Radio_Backpack par le sac de votre choix
+
+*** fleeing ***
+Documentation dans "scripts\fleeing.sqf"
+Activez les script en décommentant "#include "scripts\fleeing.sqf";" dans init.sqf
